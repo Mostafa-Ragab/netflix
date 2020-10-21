@@ -4,7 +4,6 @@ import {App} from './app';
 import { GlobalStyles } from './global-styles';
 import 'normalize.css';
 render(
-
     <>
         <GlobalStyles/>
         <App/>
