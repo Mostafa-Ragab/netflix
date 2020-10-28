@@ -31,7 +31,6 @@ Accordion.Item = function AccordionItem({ children, ...restProps }) {
 		</ToggleContext.Provider>
 	);
 };
-
 Accordion.Header = function AccordionHeader({ children, ...restProps }) {
 	const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
