@@ -64,5 +64,6 @@ export const Button = styled.button`
 		font-size: 16px;
 		margin-top: 20px;
 		font-weight: bold;
+		
 	}
 `;
