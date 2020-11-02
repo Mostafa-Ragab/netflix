@@ -13,6 +13,24 @@ export const Background = styled.div`
 	}
 `;
 
+export const Picture = styled.button`
+	background: (${({ src }) => src});
+	background-size: contain;
+	border: 0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+`;
+
+export const Profile = styled.div`
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-left: 20px;
+	button {
+		cursor: pointer;
+	}
+`;
 export const Logo = styled.img`
 	height: 32px;
 	width: 108px;
