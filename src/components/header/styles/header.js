@@ -61,7 +61,6 @@ export const Feature = styled(Container)`
 	flex-direction: column;
 	align-items: normal;
 	width: 50%;
-
 	@media (max-width: 1100px) {
 		display: none;
 	}
@@ -73,4 +72,14 @@ export const Text = styled.p`
 	line-height: normal;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 	margin: 0;
+`;
+
+export const FeatureCallOut = styled.h2`
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+	line-height: normal;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+	margin: 0;
+	margin-bottom: 20px;
 `;
