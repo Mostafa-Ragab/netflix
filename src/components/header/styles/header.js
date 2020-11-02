@@ -22,6 +22,15 @@ export const Picture = styled.button`
 	cursor: pointer;
 `;
 
+export const Dropdown = styled.div`
+	display: none;
+	background-color: black;
+	position: absolute;
+	padding: 10px;
+	width: 100px;
+	top: 32px;
+	right: 10px;
+`;
 export const Profile = styled.div`
 	display: flex;
 	align-items: center;
@@ -29,6 +38,10 @@ export const Profile = styled.div`
 	margin-left: 20px;
 	button {
 		cursor: pointer;
+	}
+	&:hover > ${Dropdown} {
+		display: flex;
+		flex-direction: column;
 	}
 `;
 export const Logo = styled.img`
@@ -108,7 +121,7 @@ export const FeatureCallOut = styled.h2`
 
 export const Link = styled.p`
 	color: #fff;
-	text-dicoration: none;
+	text-decoration: none;
 	margin-right: 30px;
 	font-weight: ${({ active }) => (active ? "700" : "normal")};
 	&:hover {
