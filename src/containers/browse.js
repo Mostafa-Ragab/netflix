@@ -31,6 +31,9 @@ export default function BrowseContainer({ slides }) {
 						<Header.TextLink>Series</Header.TextLink>
 						<Header.TextLink>Films</Header.TextLink>
 					</Header.Groupe>
+					<Header.Groupe>
+						<Header.Picture src={user.photoURL} />
+					</Header.Groupe>
 				</Header.Frame>
 				<Header.Feature>
 					<Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
