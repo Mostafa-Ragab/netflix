@@ -24,9 +24,13 @@ export default function BrowseContainer({ slides }) {
 		<>
 			{loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
 
-			<Header src="joker1">
+			<Header src="joker1" dontShowOnSmallViewPort>
 				<Header.Frame>
-					<Header.Logo to={ROUTES.HOME} src={logo} alt="NETFLIX" />
+					<Header.Groupe>
+						<Header.Logo to={ROUTES.HOME} src={logo} alt="NETFLIX" />
+						<Header.TextLink>Series</Header.TextLink>
+						<Header.TextLink>Films</Header.TextLink>
+					</Header.Groupe>
 				</Header.Frame>
 				<Header.Feature>
 					<Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
