@@ -10,11 +10,20 @@ import {
 	FeatureCallOut,
 	Groupe,
 	Link,
+	Profile,
+	Picture,
 } from "./styles/header";
 
 export default function Header({ pg = true, children, ...restProps }) {
 	return pg ? <Background {...restProps}>{children}</Background> : children;
 }
+
+Header.Profile = function HeaderProfile({ children, ...restProps }) {
+	return <Profile {...restProps}>{children}</Profile>;
+};
+Header.Picture = function HeaderPicture({ children, ...restProps }) {
+	return <Picture {...restProps}>{children}</Picture>;
+};
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
 	return <Container {...restProps}>{children}</Container>;
