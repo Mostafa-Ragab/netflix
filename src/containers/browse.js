@@ -21,7 +21,7 @@ export default function BrowseContainer({ slides }) {
 		<>
 			{loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
 			<Header src="joker1">
-				<p>hello raslan</p>
+				<Header.Text>helloooooooo</Header.Text>
 			</Header>
 		</>
 	) : (
