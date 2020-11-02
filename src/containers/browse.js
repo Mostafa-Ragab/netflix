@@ -32,7 +32,15 @@ export default function BrowseContainer({ slides }) {
 						<Header.TextLink>Films</Header.TextLink>
 					</Header.Groupe>
 					<Header.Groupe>
-						<Header.Picture src={user.photoURL} />
+						<Header.Profile>
+							<Header.Picture src={user.photoURL} />
+							<Header.Dropdown>
+								<Header.Groupe>
+									<Header.Picture src={user.photoURL} />
+									<Header.TextLink>{user.displayName}</Header.TextLink>
+								</Header.Groupe>
+							</Header.Dropdown>
+						</Header.Profile>
 					</Header.Groupe>
 				</Header.Frame>
 				<Header.Feature>
