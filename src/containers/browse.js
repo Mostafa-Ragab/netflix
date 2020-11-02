@@ -20,7 +20,9 @@ export default function BrowseContainer({ slides }) {
 	return profile.displayName ? (
 		loading ? (
 			<Loading src={user.photoURL} />
-		) : null
+		) : (
+			<Loading.ReleaseBody />
+		)
 	) : (
 		<ProfileContainer user={user} setProfile={setProfile} />
 	);
