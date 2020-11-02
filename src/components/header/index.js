@@ -12,6 +12,7 @@ import {
 	Link,
 	Profile,
 	Picture,
+	Dropdown,
 } from "./styles/header";
 
 export default function Header({ pg = true, children, ...restProps }) {
@@ -50,6 +51,11 @@ Header.FeatureCallOut = function HeaderFeatureCallOut({
 Header.Text = function HeaderText({ children, ...restProps }) {
 	return <Text {...restProps}>{children}</Text>;
 };
+
+Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
+	return <Dropdown {...restProps}>{children}</Dropdown>;
+};
+
 Header.Logo = function HeaderLogo({ to, ...restProps }) {
 	return (
 		<ReactRouterLink to={to}>
