@@ -7,6 +7,10 @@ export const Background = styled.div`
 	background: url(${({ src }) =>
 			src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
 		top left / cover no-repeat;
+	@media (max-width: 1100px) {
+		${({ dontShowOnSmallViewPort }) =>
+			dontShowOnSmallViewPort && `background: none;`}
+	}
 `;
 
 export const Logo = styled.img`
@@ -82,4 +86,23 @@ export const FeatureCallOut = styled.h2`
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 	margin: 0;
 	margin-bottom: 20px;
+`;
+
+export const Link = styled.p`
+	color: #fff;
+	text-dicoration: none;
+	margin-right: 30px;
+	font-weight: ${({ active }) => (active ? "700" : "normal")};
+	&:hover {
+		font-weight: bold;
+	}
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+`;
+
+export const Groupe = styled.div`
+	display: flex;
+	justify-content: center;
 `;
