@@ -22,28 +22,25 @@ export const Picture = styled.button`
 	cursor: pointer;
 `;
 
-export const Dropdown = styled.div`
-	display: none;
-	background-color: black;
-	position: absolute;
-	padding: 10px;
-	width: 100px;
-	top: 32px;
-	right: 10px;
+export const Link = styled.p`
+	color: #fff;
+	text-decoration: none;
+	margin-right: 30px;
+	font-weight: ${({ active }) => (active ? "700" : "normal")};
+	&:hover {
+		font-weight: bold;
+	}
+
+	&:last-of-type {
+		margin-right: 0;
+	}
 `;
-export const Profile = styled.div`
+
+export const Groupe = styled.div`
 	display: flex;
-	align-items: center;
-	position: relative;
-	margin-left: 20px;
-	button {
-		cursor: pointer;
-	}
-	&:hover > ${Dropdown} {
-		display: flex;
-		flex-direction: column;
-	}
+	justify-content: center;
 `;
+
 export const Logo = styled.img`
 	height: 32px;
 	width: 108px;
@@ -91,6 +88,50 @@ export const ButtonLink = styled(ReactRouterLink)`
 	}
 `;
 
+export const Dropdown = styled.div`
+	display: none;
+	position: absolute;
+	background-color: black;
+	padding: 10px;
+	width: 100px;
+	top: 32px;
+	right: 10px;
+	${Groupe}:last-of-type ${Link} {
+		cursor: pointer;
+	}
+	${Groupe} {
+		margin-bottom: 10px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		${Link}, ${Picture} {
+			cursor: default;
+		}
+	}
+	button {
+		margin-right: 10px;
+	}
+	p {
+		font-size: 12px;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+`;
+
+export const Profile = styled.div`
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-left: 20px;
+	button {
+		cursor: pointer;
+	}
+	&:hover > ${Dropdown} {
+		display: flex;
+		flex-direction: column;
+	}
+`;
+
 export const Feature = styled(Container)`
 	padding: 150px 0 500px 0;
 	flex-direction: column;
@@ -117,23 +158,4 @@ export const FeatureCallOut = styled.h2`
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
 	margin: 0;
 	margin-bottom: 20px;
-`;
-
-export const Link = styled.p`
-	color: #fff;
-	text-decoration: none;
-	margin-right: 30px;
-	font-weight: ${({ active }) => (active ? "700" : "normal")};
-	&:hover {
-		font-weight: bold;
-	}
-
-	&:last-of-type {
-		margin-right: 0;
-	}
-`;
-
-export const Groupe = styled.div`
-	display: flex;
-	justify-content: center;
 `;

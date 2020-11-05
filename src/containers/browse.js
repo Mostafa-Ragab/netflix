@@ -39,6 +39,11 @@ export default function BrowseContainer({ slides }) {
 									<Header.Picture src={user.photoURL} />
 									<Header.TextLink>{user.displayName}</Header.TextLink>
 								</Header.Groupe>
+								<Header.Groupe>
+									<Header.TextLink onClick={() => firebase.auth().signOut()}>
+										Sign out
+									</Header.TextLink>
+								</Header.Groupe>
 							</Header.Dropdown>
 						</Header.Profile>
 					</Header.Groupe>
