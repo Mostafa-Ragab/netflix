@@ -3,6 +3,7 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import {
 	Background,
 	ButtonLink,
+	PlayButton,
 	Container,
 	Logo,
 	Feature,
@@ -21,6 +22,10 @@ import {
 export default function Header({ pg = true, children, ...restProps }) {
 	return pg ? <Background {...restProps}>{children}</Background> : children;
 }
+
+Header.PlayButton = function HeaderPlaButton({ children, ...restProps }) {
+	return <PlayButton {...restProps}>{children}</PlayButton>;
+};
 
 Header.Search = function HeaderSearch({
 	searchTerm,
@@ -49,8 +54,8 @@ Header.Search = function HeaderSearch({
 Header.Profile = function HeaderProfile({ children, ...restProps }) {
 	return <Profile {...restProps}>{children}</Profile>;
 };
-Header.Picture = function HeaderPicture({ children, ...restProps }) {
-	return <Picture {...restProps}>{children}</Picture>;
+Header.Picture = function HeaderPicture({ src, ...restProps }) {
+	return <Picture {...restProps} src={`/images/users/${src}.png`} />;
 };
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
