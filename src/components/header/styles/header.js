@@ -14,7 +14,7 @@ export const Background = styled.div`
 `;
 
 export const Picture = styled.button`
-	background: (${({ src }) => src});
+	background: url(${({ src }) => src});
 	background-size: contain;
 	border: 0;
 	width: 32px;
@@ -139,6 +139,25 @@ export const SearchIcon = styled.button`
 	img {
 		filter: brightness(0) invert(1);
 		width: 16px;
+	}
+`;
+
+export const PlayButton = styled.button`
+	box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+	background-color: #e6e6e6;
+	color: #000;
+	border-width: 0;
+	font-weight: bold;
+	padding: 10px 20px;
+	border-radius: 5px;
+	max-width: 130px;
+	font-size: 20px;
+	margin-top: 20px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #ff1e1e;
+		color: white;
 	}
 `;
 
