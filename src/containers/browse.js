@@ -3,16 +3,19 @@ import { FirebaseContext } from "../context/firebase";
 import ProfileContainer from "./profile";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
-import { Header, Loading } from "../components";
+import { Card, Header, Loading } from "../components";
 
 export default function BrowseContainer({ slides }) {
 	const [profile, setProfile] = useState({});
+
+	const [category, setCategory] = useState("series");
 
 	const [loading, setLoading] = useState(true);
 
 	const [searchTerm, setSearchTerm] = useState("");
 
 	const { firebase } = useContext(FirebaseContext);
+	const [slideRows, setSlideRows] = useState([]);
 
 	const user = firebase.auth().currentUser || {};
 
@@ -22,6 +25,10 @@ export default function BrowseContainer({ slides }) {
 		}, 3000);
 	}, [profile.displayName]);
 
+	useEffect(() => {
+		setSlideRows(slides[category]);
+	}, [slides, category]);
+
 	return profile.displayName ? (
 		<>
 			{loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
@@ -30,8 +37,18 @@ export default function BrowseContainer({ slides }) {
 				<Header.Frame>
 					<Header.Groupe>
 						<Header.Logo to={ROUTES.HOME} src={logo} alt="NETFLIX" />
-						<Header.TextLink>Series</Header.TextLink>
-						<Header.TextLink>Films</Header.TextLink>
+						<Header.TextLink
+							active={category === "series" ? "true" : "false"}
+							onClick={() => setCategory("series")}
+						>
+							Series
+						</Header.TextLink>
+						<Header.TextLink
+							active={category === "films" ? "true" : "false"}
+							onClick={() => setCategory("films")}
+						>
+							Films
+						</Header.TextLink>
 					</Header.Groupe>
 					<Header.Groupe>
 						<Header.Search
@@ -66,6 +83,13 @@ export default function BrowseContainer({ slides }) {
 					<Header.PlayButton>Play</Header.PlayButton>
 				</Header.Feature>
 			</Header>
+			<Card.Group>
+				{slideRows.map((slideItem) => (
+					<Card key={`${category}-${slideItem.title.toLowerCase()}`}>
+						<Card.Title>{slideItem.title}</Card.Title>
+					</Card>
+				))}
+			</Card.Group>
 		</>
 	) : (
 		<ProfileContainer user={user} setProfile={setProfile} />
