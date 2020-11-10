@@ -4,7 +4,7 @@ import ProfileContainer from "./profile";
 import { FooterContainer } from "./footer";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
-import { Card, Header, Loading } from "../components";
+import { Card, Header, Loading, Player } from "../components";
 
 export default function BrowseContainer({ slides }) {
 	const [profile, setProfile] = useState({});
@@ -102,11 +102,10 @@ export default function BrowseContainer({ slides }) {
 							))}
 						</Card.Entities>
 						<Card.Feature category={category}>
-							{/* <Player>
+							<Player>
 								<Player.Button />
 								<Player.Video src="/videos/bunny.mp4" />
-							</Player> */}
-							<p>hello</p>
+							</Player>
 						</Card.Feature>
 					</Card>
 				))}
