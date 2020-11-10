@@ -110,6 +110,7 @@ export default function BrowseContainer({ slides }) {
 					</Card>
 				))}
 			</Card.Group>
+			<FooterContainer />
 		</>
 	) : (
 		<ProfileContainer user={user} setProfile={setProfile} />
