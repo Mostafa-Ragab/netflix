@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { FirebaseContext } from "../context/firebase";
 import ProfileContainer from "./profile";
-import FooterContainer from "./footer";
+import { FooterContainer } from "./footer";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 import { Card, Header, Loading } from "../components";
