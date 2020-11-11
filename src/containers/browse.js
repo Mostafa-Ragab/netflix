@@ -5,7 +5,7 @@ import { FooterContainer } from "./footer";
 import * as ROUTES from "../constants/routes";
 import logo from "../logo.svg";
 import { Card, Header, Loading, Player } from "../components";
-
+import Fuse from "fuse.js";
 export default function BrowseContainer({ slides }) {
 	const [profile, setProfile] = useState({});
 
@@ -30,6 +30,19 @@ export default function BrowseContainer({ slides }) {
 		setSlideRows(slides[category]);
 	}, [slides, category]);
 
+	useEffect(() => {
+		const fuse = new Fuse(slideRows, {
+			keys: ["data.description", "data.title", "data.genre"],
+		});
+		const results = fuse.search(searchTerm).map(({ item }) => item);
+
+		if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+			setSlideRows(results);
+		} else {
+			setSlideRows(slides[category]);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [searchTerm]);
 	return profile.displayName ? (
 		<>
 			{loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
